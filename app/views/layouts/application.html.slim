@@ -1,0 +1,16 @@
+- title '/'
+- css :application
+- javascript :application
+- description 'Welcome to the forums!'
+
+doctype html
+html
+  head
+    title= "Forum #{content_for?(:title) ? " - #{yield(:title)}" : ''}"
+    = yield(:css)
+    = yield(:meta)
+    = csrf_meta_tags
+
+  body
+    = yield
+    = yield(:javascript)
