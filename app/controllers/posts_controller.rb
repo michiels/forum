@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post_count = @posts.count
-
     respond_with @posts
   end
 

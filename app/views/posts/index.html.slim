@@ -1,4 +1,4 @@
 h1 Posts#show
 p = "#{@post_count} Posts"
 
-= render @posts
+= react_component 'Posts', data: @posts
