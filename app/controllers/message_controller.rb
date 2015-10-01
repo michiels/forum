@@ -1,0 +1,2 @@
+class MessageController
+end

@@ -9,7 +9,7 @@ require 'faker'
 
 20.times do
   content = Faker::Lorem.paragraphs((2..5).to_a.sample).inject('') do |html, paragraph|
-    html << paragraph
+    html << "<p>#{paragraph}</p>"
     html
   end
   Post.create [{title: Faker::Lorem.words((2..6).to_a.sample).join(' '), content: content}]

@@ -7,23 +7,45 @@ class PostsController < ApplicationController
     respond_with @posts
   end
 
-  def random(amount = 1)
-    @posts = Post.limit(params[:amount] || amount).order('RANDOM()')
+  def random(amount = 5)
+    @posts = Post.random.limit(params[:amount] || amount)
     respond_with @posts
   end
 
   def destroy(id)
-    if (err = Post.find(id).delete)
+    post = Post.find id
+    if (err = post.delete)
       msg = 'Post succesfully deleted!'
     else
       msg = 'Post could not be deleted!'
     end
     if request.xhr?
-      respond_with({post: {destroy: {msg: msg, success: err}}})
+      respond_with object: post, action: :destroy, msg: msg, success: err
     else
       flash.alert msg
       render posts_path
     end
+  end
+
+  def create
+    post = Post.new(post_params)
+    if (err = post.save)
+      msg = 'Post succesfully created!'
+    else
+      msg = 'Post could not be created!'
+    end
+    if request.xhr?
+      respond_with object: post, action: :create, msg: msg, success: err
+    else
+      flash.alert msg
+      render post
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content)
   end
 
 end

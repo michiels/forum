@@ -1,0 +1,42 @@
+.form
+  display: block
+  max-width: 950px
+  margin: 20px auto 0
+  padding: 10px
+  background: rgba(#09c, 0.5)
+
+  .form-row
+    display: block
+    margin: 10px 0 0
+
+    &:first-child
+      margin: 0
+
+  .form-field
+    width: 100%
+    min-height: 30px
+    line-height: 30px
+    padding: 0 10px
+    border: 2px solid #09c
+
+    &:focus
+      outline: none
+      border: 2px solid lighten(#09c, 5%)
+      background: #eee
+
+  textarea.form-field
+    min-height: 130px
+    resize: vertical
+
+  .form-button
+    padding: 10px 40px
+    background: #09c
+    border: none
+    color: #eee
+    font-weight: 700
+    cursor: pointer
+    transition: all 200ms linear
+
+    &:hover, &:focus
+      outline: none
+      background: darken(#09c, 10%)

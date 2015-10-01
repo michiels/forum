@@ -1,7 +1,7 @@
 @Posts = React.createClass
 
   getInitialState: ->
-    posts: @props.data
+    posts: @props.data.posts
 
   getDefaultProps: ->
     posts: []
@@ -9,10 +9,6 @@
   render: ->
     React.DOM.div
       className: 'post-container'
-
-      React.DOM.h1
-        className: 'post-container-title'
-        'Posts'
 
       React.DOM.div
         null

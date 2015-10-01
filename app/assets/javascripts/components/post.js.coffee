@@ -6,11 +6,12 @@
       React.DOM.h2
         className: 'post-title'
         @props.post.title
-      
-      React.DOM.p
+
+      React.DOM.div
         className: 'post-content'
-        @props.post.content
+        dangerouslySetInnerHTML:
+          __html: @props.post.content
 
       React.DOM.p
-        null
+        className: 'post-footer'
         @props.post.created_at
