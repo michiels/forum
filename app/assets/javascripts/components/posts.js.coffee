@@ -1,5 +1,10 @@
 @Posts = React.createClass
 
+  addPost: (post) ->
+    posts = @state.posts.slice()
+    posts.push post
+    @setState posts: posts
+
   getInitialState: ->
     posts: @props.data.posts
 
